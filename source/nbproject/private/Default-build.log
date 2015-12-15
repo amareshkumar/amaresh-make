@@ -1,0 +1,4 @@
+g++ -std=c++0x -std=c++11 -std=gnu++11 -std=gnu++0x -g -o2 -Wall -pedantic   -c -o Rectangle.o Rectangle.cpp
+g++ -std=c++0x -std=c++11 -std=gnu++11 -std=gnu++0x -g -o2 -Wall -pedantic   -c -o Main.o Main.cpp
+g++ -std=c++0x -std=c++11 -std=gnu++11 -std=gnu++0x -g -o2 -Wall -pedantic   -c -o Triangle.o Triangle.cpp
+cc -std=c++0x -std=c++11 -std=gnu++11 -std=gnu++0x -g -o2 -Wall -pedantic -o amaresh Rectangle.o Main.o Triangle.o -lstdc++ -L/usr/ -L/usr/lib -L/usr/local/bin
