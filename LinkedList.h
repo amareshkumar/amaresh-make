@@ -42,16 +42,26 @@ extern "C" {
             current->next = last;
         }
 
-        void add_to_front (node* front){
+        /* 
+		void add_to_front ( node *head, node *front ){
             
             front->next = phead; 
             phead = front;
-        }
+			//head = phead; // added to keep the head updated. 
+        }*/
         
+		/* Changing this logic to keep track of head */ 
+		node* add_to_front ( node *head, node *front ){
+            
+            front->next = phead; 
+            phead = front;
+			return phead; 
+        }
+		
         void add_in_middle (){
         }
         
-        void display_list (){
+        void display_list (node* phead){
             if (!phead){
                 cout << "No item to display!!. Please add some item in the list. \n";
                 return;
@@ -62,8 +72,8 @@ extern "C" {
             }
         }
         
-        int return_front_node (node* front) {
-            return front->info;
+        int return_front_node (node *head) {
+            return head->info;
         } 
         
     private: 

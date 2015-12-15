@@ -9,11 +9,11 @@
 #include <iostream>
 
 Rectangle::Rectangle(int l, int b):len(l), br(b) {
-	std::cout << "Rectangle c-tor\n";
+	std::cout << "-----\nRectangle C-tor\n-----\n";
 
 }
 
 Rectangle::~Rectangle() {
-	std::cout << "Rectangle d-tor\n";
+	std::cout << "-----\nRectangle D-tor\n-----\n";
 }
 

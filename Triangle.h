@@ -9,6 +9,9 @@
 #define TRIANGLE_H_
 
 #include "Shape.h"
+#include <iostream>
+
+using namespace std;
 
 class Triangle: public Shape {
 public:
@@ -17,10 +20,13 @@ public:
 
 	double get_area ();
 	double get_perimeter ();
+	string tri_name()const {
+		return tname;
+	}
 private:
-	int base;
-	int height;
+	int base, height;
 	int side1, side2, side3;
+	const string tname = "Scalene. ";
 };
 
 #endif /* TRIANGLE_H_ */

@@ -9,18 +9,19 @@
 #include <iostream>
 
 Triangle::Triangle(int bs, int ht, int s1, int s2, int s3): base(bs), height(ht), side1(s1), side2(s2), side3(s3){
-	std::cout << "triangle c-tor\n";
+	//tname = "Regular Triangle";
+	std::cout << "------\nTriangle c-tor\n------\n";
 
 }
 
 Triangle::~Triangle() {
-	std::cout << "triangle d-tor\n";
+	std::cout << "------\nTriangle d-tor\n------\n";
 }
 
 
 double Triangle::get_area(){
 
-	return ( double (1/2) * base * height);
+	return 0.5 * base * height;
 }
 
 double Triangle::get_perimeter(){

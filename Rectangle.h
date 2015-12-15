@@ -8,9 +8,9 @@
 #ifndef RECTANGLE_H_
 #define RECTANGLE_H_
 
-#include "Shape.h"
+#include "Quad.h"
 
-class Rectangle: public Shape {
+class Rectangle: public Quad {
 public:
 	Rectangle(int len=0, int br=0);
 	virtual ~Rectangle();
@@ -22,6 +22,9 @@ public:
 
 	double get_perimeter () {
 			return 0.5 * (len + br);
+	}
+	bool is_square (){
+		return (len == br);
 	}
 private:
 	int len;
