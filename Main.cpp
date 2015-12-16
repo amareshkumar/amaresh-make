@@ -10,6 +10,8 @@
 #include <memory>
 #include <chrono>
 #include <pthread.h>
+#include <vector>
+#include <math.h>
 
 
 #include "Triangle.h"
@@ -38,7 +40,7 @@ long avg_arr_elements (T array[], int no_el){
 }
 
 int main() {
-		std::cout << "==================================================\n";
+		cout << "==================================================\n";
 #ifdef SMART_PTR
 		auto sp_tring = make_shared < Triangle > (10, 8, 10, 4, 5);
 		std::cout << "==================================================\n";
@@ -69,7 +71,7 @@ int main() {
 		std::cout << "==================================================\n";
 
 #endif
-
+		cout << "==================================================\n";
 #ifdef POLYMORPHISM
 		cout << "Polymorphism and Casting in C++\n";
 
@@ -107,7 +109,7 @@ int main() {
 		//delete pRec;
 
 #endif //POLYMORPHISM
-		std::cout << "==================================================\n";
+		cout << "==================================================\n";	
 #ifdef THREADING
 		cout << "Multithreading practises\n";
 		
@@ -117,8 +119,8 @@ int main() {
 		
 		
 		#endif //THREADING
-
-		#ifdef LINKED_LIST
+		cout << "==================================================\n";
+#ifdef LINKED_LIST
                 cout << "Linked List operations and their implementation\n";
 				std::cout << "==================================================\n";
                 //create a head node with info value 5
@@ -144,8 +146,8 @@ int main() {
 				cout << endl;
 				
 				cout << "Adding items to last\n";
-                list.add_to_last (head, new node(1000));
-                list.add_to_last (head, new node(5555));
+                head = list.add_to_last (head, new node(1000));
+                head = list.add_to_last (head, new node(5555));
 				               
 				cout << "Elements in the list are: ";
                 list.display_list( head );
@@ -153,11 +155,35 @@ int main() {
 				cout <<"\n------\n";
                
                 cout << "The first node in the list is: "; 
-                cout << list.return_front_node(head);
-                
+                cout << list.return_front_node(head) << endl;;
+				cout << "The last node in the list: ";
+				cout << list.get_last_node (head) << endl;
+				
+				//cout << "List after adding new node at pos 5 with value 111\n";
+				//head = add_after_pos (head, new node (111), 4);
+				delete head; 
+				cout << "------------------\n";
+				
+				cout << "Initializing list with vectors...\n";
+				
+				node* head2 = new node(1);
+				LinkedList list2 ( head2 );
+				list2.display_list( head2 );
+				
+				vector <int> myIntVect; 
+				cout << "vector's items are:\n";
+				for (int i = 0 ; i < 10; i++) {
+					//add randon integer values in the vector
+					int value = rand() % 500;
+					myIntVect.push_back ( value );
+					cout << value << " ";
+				}
+                list2.populate_list (head2, myIntVect);
+				
+				
 				cout << endl;
 				std::cout << "==================================================\n";
-		#endif //LINKED_LIST
+#endif //LINKED_LIST
                 
 		return 0;
 }
