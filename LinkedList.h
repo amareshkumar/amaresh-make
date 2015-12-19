@@ -13,122 +13,47 @@
 
 using namespace std; 
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+struct node {
+public: 
+	node ( int value ): info ( value), next (nullptr) {
+	}
+	int info; 
+	node* next;     
+};
 
-    struct node {
-    public: 
-        node ( int value ): info ( value), next (nullptr) {
-        }
-        int info; 
-        node* next;     
-    };
-    
-    class LinkedList {
-    public:
-        LinkedList (): phead(nullptr){
-        }
-        
-        LinkedList ( node* item ): phead(item){
-            item->next = nullptr; 
-        }
+class LinkedList {
+public:
+	LinkedList (): phead(nullptr), no_of_items(0){
+	}
+	
+	LinkedList ( node* item ): phead(item), no_of_items(0){
+		item->next = nullptr; 
+	}
 
-        
-
-        /* 
-		void add_to_front ( node *head, node *front ){
-            
-            front->next = phead; 
-            phead = front;
-			//head = phead; // added to keep the head updated. 
-        }*/
-        
-		/* Changing this logic to keep track of head */ 
-		node* add_to_front ( node *head, node *front ){
-            
-            front->next = phead; 
-            phead = front;
-			return phead; 
-        }
-		
-		node* add_to_last ( node *front, node *last ){
-            node *current = front;
-			//when the list is emply. add this as the only item
-			if (current) {
-				current = last; 
-				last->next = nullptr; 
-				return front; 
-			}
-			
-            while ( current->next != nullptr ) {
-                current = current->next; 
-            }
-            //found the last node
-            current->next = last;
-			last->next = nullptr;
-			
-			return front; 
-        }
-		
-        node* add_after_pos ( node *head, node *item, int pos){
-			node *current = head; 
-			int i = 1; 
-			while ( i < pos ) {
-				current = current->next; 
-			}
-			//add the item here as i == pos 
-			item->next = current->next; 
-			current = item; 
-			
-			//return head of new list with one extra node
-			return head; 
-        }
-        
-        void display_list (node* phead){
-            if (!phead){
-                cout << "No item to display!!. Please add some item in the list. \n";
-                return;
-            }
-            while (phead){
-                cout << phead->info << " " ;
-                phead = phead->next;
-            }
-        }
-        
-        int return_front_node (node *head) {
-            return head->info;
-        } 
-		
-		int get_last_node (node *head) {
-			node *current = head; 
-			if (!current){
-                cout << "No item in the list!! \n";
-                return 0;
-            }
-            while (current->next){
-                //cout << current->info << " " ;
-                current = current->next;       
-			}
-			return current->info; 
-		}
-		
-		//Populate list with vector items
-		node* populate_list (node* head, vector<int> &vect){
-			for (int i = 0 ; i < 10; i++) 
-				head =  add_to_last (head, new node(vect[i]));
-				
-			return head; 
-		}
-        
-    private: 
-        node* phead; 
-    };
-
-
-#ifdef	__cplusplus
-}
-#endif
+	/* Changing this logic to keep track of head */ 
+	node* add_to_front ( node *head, node *front );
+	node* add_to_last ( node *front, node *last );
+	node* add_after_pos ( node *head, node *item, int pos);
+	int get_last_node (node *head);
+	//Populate list with vector items
+	node* populate_list (node* head, vector<int> &vect);
+	//Remove a node from the list
+	node* remove_last_item ( node *head);
+	node* remove_first_item (node *phead);
+	void display_list (node* phead);
+	int population (node* phead);
+	int return_front_node (node *head){
+		return head->info;
+	}
+	
+	node* sort_list_asc (node* head);
+	node* sort_list_desc (node* head);
+	node* reverse_list (node* head);
+	
+private: 
+	node* phead; 
+	int no_of_items; 
+};
 
 #endif	/* LINKEDLIST_H */
 

@@ -129,7 +129,6 @@ int main() {
                 LinkedList list (head); 
 				cout << "Adding items to the front\n" ;
 				
-				
                 /*list.add_to_front(new node (2));
                 list.add_to_front (new node (10));
                 list.add_to_front (new node (20));
@@ -159,15 +158,35 @@ int main() {
 				cout << "The last node in the list: ";
 				cout << list.get_last_node (head) << endl;
 				
-				//cout << "List after adding new node at pos 5 with value 111\n";
-				//head = add_after_pos (head, new node (111), 4);
-				delete head; 
+				int pos = 0; 
+				cout << "enter the position to insert the new node: "; 
+				cin >> pos;
+				cout << "Enter the value: ";
+				int value;
+				cin >> value; 
+				//value = (new node (value1))->info; 
+				cout << "\nList after adding new node at position " << pos << " with value " << value <<" is:\n";
+				head = list.add_after_pos (head, new node (value), pos);
+				//delete head;
+				list.display_list (head); 
+				
+				cout << "elements in the list after removing last item from the list\n";
+				head = list.remove_last_item (head);
+				list.display_list ( head );
+				cout << endl; 
+				cout << "elements in the list after removing head node from the list\n";
+				head = list.remove_first_item  (head) ;
+				list.display_list ( head );
+				//cout << "No of items:" << list.population (head) << endl;
+				cout << endl; 
+				
 				cout << "------------------\n";
 				
 				cout << "Initializing list with vectors...\n";
 				
 				node* head2 = new node(1);
 				LinkedList list2 ( head2 );
+				cout << "Items in the list before initializing with vectors: " ;
 				list2.display_list( head2 );
 				
 				vector <int> myIntVect; 
@@ -178,12 +197,13 @@ int main() {
 					myIntVect.push_back ( value );
 					cout << value << " ";
 				}
-                list2.populate_list (head2, myIntVect);
+                head2 = list2.populate_list (head2, myIntVect); 
+				cout << "\nItems in the list after initializing with vector's elements are:\n" ;
+				list2.display_list( head2 );
+				cout << "\n------------------\n";
 				
-				
-				cout << endl;
 				std::cout << "==================================================\n";
 #endif //LINKED_LIST
                 
 		return 0;
-}
+}  //Function main() Ends here!!
