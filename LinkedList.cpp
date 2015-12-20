@@ -134,3 +134,15 @@ int LinkedList::population (node* phead){
 	}
 	return no_of_items; 
 }
+
+node* LinkedList::reverse_list ( node* head ) {
+	node *newhead = nullptr;
+	
+	while ( head ){
+		node *pnext = head->next; 
+		head->next = newhead; 
+		newhead = head; 
+		head = pnext;
+	}
+	return newhead; 
+}

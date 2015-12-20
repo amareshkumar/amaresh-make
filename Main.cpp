@@ -182,7 +182,7 @@ int main() {
 				
 				cout << "------------------\n";
 				
-				cout << "Initializing list with vectors...\n";
+				cout << "Populating new list with vectors...\n";
 				
 				node* head2 = new node(1);
 				LinkedList list2 ( head2 );
@@ -200,10 +200,19 @@ int main() {
                 head2 = list2.populate_list (head2, myIntVect); 
 				cout << "\nItems in the list after initializing with vector's elements are:\n" ;
 				list2.display_list( head2 );
-				cout << "\n------------------\n";
 				
+				cout << "\n------------------\n";
+				cout <<"Reverse linkedlist...\n";
+				head2 = list2.reverse_list (head2);
+				cout << "After reversal, the list became:";
+				list2.display_list( head2 );
+				cout << "\n------------------\n";
 				std::cout << "==================================================\n";
 #endif //LINKED_LIST
-                
+		cout << "==================================================\n";
+#ifdef QUEUE
+
+#endif //QUEUE
+        cout << "==================================================\n";        
 		return 0;
 }  //Function main() Ends here!!
